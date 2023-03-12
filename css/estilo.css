@@ -1,7 +1,0 @@
-.tela{
-	-fx-background-image: url("arvore.jpg");  //coloca imagem de fundo
-	-fx-background-size: 700 600;  //muda as dimensoes da imagem de fundo
-	-fx-background-repeat: stretch;  //muda o tipo de repeticao da imagem no fundo
-	-fx-border-color: green;  //coloca borda 'verde'
-	-fx-border-width: 1;  //muda o largura da borda
-}
