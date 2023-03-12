@@ -12,10 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Membro;
 import model.Pai;
 import controller.TelaPrincipalController;
 
-public class Principal extends Application { // classe principal
+public class Principal extends Application {
 
   /*****************************************************************
    * Metodo: start
@@ -25,12 +26,11 @@ public class Principal extends Application { // classe principal
    */
   @Override
   public void start(Stage palco) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("/view/TelaPrincipal.fxml")); // carregando a tela fxml pelo
-                                                                                       // seu caminho
-    Scene cena = new Scene(root); // carregando a cena com a tela fxml
-    palco.setScene(cena); // carregando o palco com a cena
-    palco.show(); // mostrando o palco
-  } // fim do metodo start
+    Parent root = FXMLLoader.load(getClass().getResource("/view/TelaPrincipal.fxml"));
+    Scene cena = new Scene(root);
+    palco.setScene(cena);
+    palco.show();
+  }
 
   /****************************************************************
    * Metodo: main
@@ -38,7 +38,9 @@ public class Principal extends Application { // classe principal
    * Parametros: String[] args
    * Retorno: *sem retorno*
    */
-  public static void main(String[] args) { // metodo main da classe principal
-    launch(args); // iniciando o aplicativo
-  } // fim do metodo main
-} // fim da classe Principal
+  public static void main(String[] args) {
+    // Membro m = new Membro("Pai", 10);
+    // m.start();
+    launch(args);
+  }
+}
