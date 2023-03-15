@@ -38,6 +38,7 @@ public class Membro extends Thread {
       while (idadeAtual <= idadeMorte) {
         mudaAparencia();
         gerarFilho();
+        atualizaIdadePai();
         sleep(1000);
         idadeAtual++;
       }
@@ -66,6 +67,11 @@ public class Membro extends Thread {
 
     if (idadeAtual == idadeMorte)
       telaPrincipalController.mudaImagem(5, nome);
+  }
+
+  private void atualizaIdadePai() {
+    if (nome == "pai")
+      telaPrincipalController.atualizaIdadePai(idadeAtual);
   }
 
   public TelaPrincipalController getTelaPrincipalController() {

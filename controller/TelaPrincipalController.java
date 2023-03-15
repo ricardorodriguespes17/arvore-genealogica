@@ -27,15 +27,16 @@ public class TelaPrincipalController implements Initializable {
   @FXML
   private ImageView imagemBisneto = new ImageView();
 
+  private Arvore arvore = new Arvore(this);
   private ArrayList<String> estagios = new ArrayList<>(Arrays.asList("Crianca", "Jovem", "Adulto", "Idoso", ""));
 
   /*
    * ***************************************************************
-   * Metodo: pai
+   * Metodo: mudaImagem
    * Funcao: carrega imagens diferentes no visualizador de imagens ao
-   * longo do tempo de vida do pai
+   * longo do tempo de vida dos membros
    * Parametros: inteiro que representa a fase da vida do individuo
-   * da arvore
+   * da arvore, string que representa o nome do membro
    * Retorno: *sem retorno*
    */
   public void mudaImagem(int estagio, String membro) {
@@ -71,6 +72,10 @@ public class TelaPrincipalController implements Initializable {
     }
   }
 
+  public void atualizaIdadePai(int idade) {
+    System.out.println("pai: " + idade + " anos");
+  }
+
   /*
    * ***************************************************************
    * Metodo: initialize
@@ -80,7 +85,6 @@ public class TelaPrincipalController implements Initializable {
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    imagemPai.setImage(new Image("/view/imagens/morte.png"));
-    new Arvore(this);
+    arvore.iniciarArvore();
   }
 }
