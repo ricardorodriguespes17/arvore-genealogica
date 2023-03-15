@@ -4,11 +4,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import model.Arvore;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import model.Arvore;
 
 public class TelaPrincipalController implements Initializable {
 
@@ -26,6 +28,8 @@ public class TelaPrincipalController implements Initializable {
   private ImageView imagemNeto2 = new ImageView();
   @FXML
   private ImageView imagemBisneto = new ImageView();
+  @FXML
+  private Label labelIdadePai = new Label();
 
   private Arvore arvore = new Arvore(this);
   private ArrayList<String> estagios = new ArrayList<>(Arrays.asList("Crianca", "Jovem", "Adulto", "Idoso", ""));
@@ -72,8 +76,16 @@ public class TelaPrincipalController implements Initializable {
     }
   }
 
-  public void atualizaIdadePai(int idade) {
-    System.out.println("pai: " + idade + " anos");
+  public void atualizaIdadeMembro(int idade, String membro) {
+    Platform.runLater(() -> {
+      switch (membro) {
+        case "pai":
+          labelIdadePai.setText(idade + "");
+          break;
+        default:
+          break;
+      }
+    });
   }
 
   /*

@@ -3,6 +3,7 @@ package model;
 import controller.TelaPrincipalController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Membro extends Thread {
   private TelaPrincipalController telaPrincipalController;
@@ -36,10 +37,10 @@ public class Membro extends Thread {
     System.out.println("O " + nome + " nasceu");
     try {
       while (idadeAtual <= idadeMorte) {
-        mudaAparencia();
         gerarFilho();
-        atualizaIdadePai();
-        sleep(1000);
+        mudaAparencia();
+        atualizaIdadeMembro();
+        sleep(200);
         idadeAtual++;
       }
       System.out.println("O " + nome + " morre aos " + idadeMorte + " anos");
@@ -69,9 +70,8 @@ public class Membro extends Thread {
       telaPrincipalController.mudaImagem(5, nome);
   }
 
-  private void atualizaIdadePai() {
-    if (nome == "pai")
-      telaPrincipalController.atualizaIdadePai(idadeAtual);
+  private void atualizaIdadeMembro() {
+    telaPrincipalController.atualizaIdadeMembro(idadeAtual, nome);
   }
 
   public TelaPrincipalController getTelaPrincipalController() {

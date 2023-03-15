@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 // import controller.TelaPrincipalController; --remover descomentar se for rodar com javac
+import model.Arvore;
 
 public class Principal extends Application {
 
