@@ -3,7 +3,6 @@ package model;
 import controller.TelaPrincipalController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Membro extends Thread {
   private TelaPrincipalController telaPrincipalController;
