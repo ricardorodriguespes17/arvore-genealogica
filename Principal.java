@@ -12,7 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-// import controller.TelaPrincipalController; --remover descomentar se for rodar com javac
+// descomentar linha abaixo se for rodar com javac
+// import controller.TelaPrincipalController; 
 
 public class Principal extends Application {
 
