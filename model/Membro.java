@@ -1,19 +1,28 @@
 package model;
 
 import controller.TelaPrincipalController;
-import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
 
 public class Membro extends Thread {
-  TelaPrincipalController telaPrincipalController;
-  public int idadeMorte;
-  public int idadeAtual = 0;
-  public String nome;
-  public ImageView imageView;
+  private TelaPrincipalController telaPrincipalController;
+  private int idadeAtual = 0;
+  private int idadeMorte;
+  private String nome;
+  private ArrayList<Nascimento> filhos;
 
-  public Membro(String nome, int idadeMorte, TelaPrincipalController telaPrincipalController) {
+  public Membro(
+      String nome,
+      int idadeMorte,
+      ArrayList<Nascimento> filhos,
+      TelaPrincipalController telaPrincipalController) {
     this.nome = nome;
     this.idadeMorte = idadeMorte;
     this.telaPrincipalController = telaPrincipalController;
+    if (filhos != null)
+      this.filhos = filhos;
+    else
+      this.filhos = new ArrayList<>();
   }
 
   /*
@@ -39,7 +48,10 @@ public class Membro extends Thread {
   }
 
   public void gerarFilho() {
-
+    for (Nascimento nascimento : filhos) {
+      if (nascimento.getIdadePai() == idadeAtual)
+        nascimento.getFilho().start();
+    }
   }
 
   public void mudaAparencia() {
@@ -54,6 +66,46 @@ public class Membro extends Thread {
 
     if (idadeAtual == idadeMorte)
       telaPrincipalController.mudaImagem(5, nome);
+  }
+
+  public TelaPrincipalController getTelaPrincipalController() {
+    return telaPrincipalController;
+  }
+
+  public void setTelaPrincipalController(TelaPrincipalController telaPrincipalController) {
+    this.telaPrincipalController = telaPrincipalController;
+  }
+
+  public int getIdadeAtual() {
+    return idadeAtual;
+  }
+
+  public void setIdadeAtual(int idadeAtual) {
+    this.idadeAtual = idadeAtual;
+  }
+
+  public int getIdadeMorte() {
+    return idadeMorte;
+  }
+
+  public void setIdadeMorte(int idadeMorte) {
+    this.idadeMorte = idadeMorte;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
+  public ArrayList<Nascimento> getFilhos() {
+    return filhos;
+  }
+
+  public void setFilhos(ArrayList<Nascimento> filhos) {
+    this.filhos = filhos;
   }
 
 }

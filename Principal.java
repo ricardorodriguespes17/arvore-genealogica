@@ -12,9 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Membro;
-import model.Pai;
-import controller.TelaPrincipalController;
+// import controller.TelaPrincipalController; --remover descomentar se for rodar com javac
 
 public class Principal extends Application {
 
@@ -39,8 +37,6 @@ public class Principal extends Application {
    * Retorno: *sem retorno*
    */
   public static void main(String[] args) {
-    // Membro m = new Membro("Pai", 10);
-    // m.start();
     launch(args);
   }
 }

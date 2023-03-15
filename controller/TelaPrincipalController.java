@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import model.Pai;
+import model.Arvore;
 import javafx.scene.image.Image;
 
 public class TelaPrincipalController implements Initializable {
@@ -81,7 +81,6 @@ public class TelaPrincipalController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle rb) {
     imagemPai.setImage(new Image("/view/imagens/morte.png"));
-    Pai pai = new Pai(this);
-    pai.start();
+    new Arvore(this);
   }
 }
